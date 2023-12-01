@@ -58,7 +58,3 @@ thats it!
 ![ss1](./docs/gallery/ss1.png)
 
 ![ss2](./docs/gallery/ss2.png)
-
-```
-
-```
