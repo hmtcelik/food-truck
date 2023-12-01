@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<section class="bg-white dark:bg-gray-900 min-h-screen">
+
+    <div class="container px-6 py-2 mx-auto">
+        <div class="flex items-center justify-between my-12 lg:justify-start">
+            <a href="{% url 'food_list' %}">
+                <button title="left arrow"
+                    class="p-2 text-gray-800 transition-colors duration-300 border rounded-full rtl:-scale-x-100 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 hover:bg-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+            </a>
+        </div>
+
+
+        <div class="lg:-mx-6 lg:flex lg:items-center">
+            <img class="object-cover object-center lg:w-1/2 lg:mx-6 w-full h-96 rounded-lg lg:h-[36rem]"
+                src="https://generatorfun.com/code/uploads/Random-Food-image-{{food.id}}.jpg" alt="">
+
+            <div class="mt-8 lg:w-1/2 lg:px-6 lg:mt-0">
+                <p class="text-5xl font-semibold text-blue-500 ">“</p>
+
+                <h1 class="text-2xl font-semibold text-gray-800 dark:text-white lg:text-3xl lg:w-96">
+                    {{food.applicant}}
+                </h1>
+                <h3 class="mt-2 text-lg font-medium text-blue-500">{{food.facility_type}}</h3>
+
+                <p class="max-w-lg mt-6 text-gray-500 dark:text-gray-400 ">
+                    “ {{food.food_items}} ”
+                </p>
+
+                <p class="mt-6 text-gray-600 dark:text-gray-300">{{food.location_description}}</p>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container px-6 py-10 mx-auto">
+
+        <div class="relative w-full h-96">
+            <iframe class="absolute top-0 left-0 w-full h-full"
+                src="https://maps.google.com/maps?q={{food.latitude}}, {{food.longitude}}&z=15&output=embed"
+                frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+            </iframe>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

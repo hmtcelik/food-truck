@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<section class="bg-white dark:bg-gray-900 min-h-screen">
+
+    <nav class="relative bg-white dark:bg-gray-900">
+        <div class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
+            <div class="flex flex-row gap-4 md:flex-row">
+                <a class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400  md:my-0"
+                    href="{% url 'index' %}">Home</a>
+                <a class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400  md:my-0"
+                    href="{% url 'food_list' %}">Street Foods</a>
+            </div>
+    </nav>
+
+    <div class="container px-6 py-10 mx-auto">
+        <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
+            Popular Street Foods
+        </h1>
+
+        <p class="mt-4 text-center text-gray-500 dark:text-gray-300">
+            Discover the best street foods in your city and enjoy an amazing meal near to you. If you like street food,
+            you will love this app.
+        </p>
+
+
+        <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
+
+            {% for food in foods %}
+
+            <a href="{% url 'food_detail' food.id %}">
+                <div class="overflow-hidden bg-cover rounded-lg cursor-pointer h-96 group"
+                    style="background-image:url('https://generatorfun.com/code/uploads/Random-Food-image-{{forloop.counter}}.jpg')">
+                    <div
+                        class="flex flex-col justify-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-gray-800/60 group-hover:opacity-100">
+                        <h2 class="mt-4 text-4xl font-semibold text-white capitalize">
+                            {{ food.applicant }}
+                        </h2>
+                        <p class="mt-2 text-lg tracking-wider text-blue-400 uppercase ">
+                            {{ food.facility_type }}
+                        </p>
+                        <p class="mt-2 text-lg tracking-wider text-white uppercase ">
+                            {{ food.food_items }}
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
