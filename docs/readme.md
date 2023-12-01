@@ -34,15 +34,8 @@ and you can go http://localhost:8000/
 
 thats it!
 
-## OPTIONAL; you can also use docker instead
-
-```
-docker build
-
-
 ## Some examples in our app
 
 ![ss1](./docs/gallery/ss1.png)
 
 ![ss2](./docs/gallery/ss2.png)
-```
